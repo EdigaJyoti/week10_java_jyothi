@@ -1,0 +1,24 @@
+package com.corenuts.assessment.jan11;
+
+public class HaloSquarePattern {
+	
+	public static void main(String[] args) {
+		
+		int value=5;
+		
+		for(int i=1;i<=value;i++) {
+			for(int j=1;j<=value;j++) {
+				if(i==1||j==1||i==value||j==value) {
+					System.out.print("8");
+				}
+				else {
+					System.out.print(" ");
+				}
+				
+			}
+			System.out.println();
+		}
+		
+	}
+
+}

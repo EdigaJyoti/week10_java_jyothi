@@ -1,0 +1,33 @@
+package com.corenuts.assessment.jan11;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+public class YoungestEmployeeDetails {
+	
+	public static void main(String[] args) {
+		
+		EmployeeList employees = new EmployeeList();
+		List<Employee> list = employees.listOfEmployees();
+		
+		Map<String, Optional<Employee>> collect = list.stream()
+										.collect(Collectors.groupingBy(Employee::getDepartment , 
+												Collectors.minBy(Comparator.comparing(Employee::getAge))));
+		
+		collect.entrySet().stream().forEach(a->{
+			System.out.println("Younger employee  in "+a.getKey()+" Department is");
+			Employee employee = a.getValue().get();
+			System.out.println(employee.getName());
+			System.out.println("----------------------------");
+		});
+		
+		collect.entrySet().stream().forEach(a->{
+			System.out.println(a.getKey() + "  =  "+ a.getValue().get().getName());
+		});
+	
+	}
+
+}

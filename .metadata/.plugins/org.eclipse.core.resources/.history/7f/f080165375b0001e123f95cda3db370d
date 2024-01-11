@@ -1,0 +1,38 @@
+package com.corenuts.assessment.jan11;
+
+import java.util.Scanner;
+
+public class DiamondPattern {
+	
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.println(" Enter value ");
+		int value = scanner.nextInt();
+		
+		for(int row=1;row<=value*2-1;row++) {
+			for(int column=1;column<=value*2-1;column++) {
+				if(row<=value) {
+					if(column<value-row+1 || column>value-1+row) {
+						System.out.print(" ");
+					}
+					else {
+						System.out.print("*");
+					}
+				}
+				else {
+					if(column<row-value+1 || column>2*value+4-row) {
+						System.out.print(" ");
+					}
+					else {
+						System.out.print("*");
+					}
+				}
+			}
+			System.out.println();
+		}
+		
+	}
+
+}

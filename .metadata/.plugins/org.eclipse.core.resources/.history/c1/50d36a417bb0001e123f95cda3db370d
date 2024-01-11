@@ -1,0 +1,28 @@
+package com.corenuts.assessment.jan11;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class CountOfMaleFemale {
+	
+	public static void main(String[] args) {
+		
+		EmployeeList employees = new EmployeeList();
+		List<Employee> list = employees.listOfEmployees();
+		
+		Map<String, Long> count = list.stream().collect(Collectors.groupingBy(Employee::getGender , Collectors.counting()));
+		
+		System.out.println(count);
+		
+		Set<Entry<String, Long>> entrySet = count.entrySet();
+		for(Entry<String, Long> entrySets : entrySet ) {
+			System.out.println(entrySets.getKey() +"=" +entrySets.getValue());
+		}
+	
+		
+	}
+
+}

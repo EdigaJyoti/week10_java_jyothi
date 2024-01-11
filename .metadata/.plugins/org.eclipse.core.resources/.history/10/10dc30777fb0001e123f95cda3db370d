@@ -1,0 +1,13 @@
+package com.corenuts.assessment.jan11;
+
+import org.junit.jupiter.api.Test;
+
+public class TestEmployee {
+	
+	ExistenceOfEmployee employee = new ExistenceOfEmployee();
+	
+	@Test
+	public void employeeTest() {
+		
+	}
+}
